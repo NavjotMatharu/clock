@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="clock">
+        <div class="ooo">
+        <img src="GoldenTemple_SriHarmandirSahib_Amritsar-SikhShrine_83c20d50-9f52-40c5-8c4d-b263df1ef5bc (1).jpg" width="500px"
+        height="500px">
+    </div>
+        <div class="hand hour" id="hour"></div>
+        <div class="hand minute" id="minute"></div>
+        <div class="hand second" id="second"></div>
+        <div class="center-dot"></div>
+      </div>
+    
+      <script>
+        const hourHand = document.getElementById('hour');
+        const minuteHand = document.getElementById('minute');
+        const secondHand = document.getElementById('second');
+    
+        function updateClock () {
+          const now = new Date();
+          const seconds = now.getSeconds();
+          const minutes = now.getMinutes();
+          const hours = now.getHours();
+    
+          const secondDeg = seconds * 6;
+          const minuteDeg = minutes * 6 + seconds * 0.1;
+          const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+    
+          secondHand.style.transform = `rotate(${secondDeg}deg)`;
+          minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
+          hourHand.style.transform = `rotate(${hourDeg}deg)`;
+        }
+    
+        setInterval(updateClock, 1000);
+        updateClock();
+      </script>
+    
+</body>
+</html>
